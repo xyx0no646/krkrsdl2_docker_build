@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: dockerfiles/emscripten/Dockerfile
+    tty: true
+    volumes:
+      - ./krkrsdl2:/krkrsdl2
+      - ./build:/build
+    working_dir: /
+    command: |
+      /bin/bash -c '
+       bash /emsdk/emsdk_env.sh  &&
+       bash /emsdk/emsdk activate latest &&
+       export PATH=$PATH:/emsdk/emscripten:/usr/bin/ &&
+       source "/emsdk/emsdk_env.sh" &&
+       cd / &&
+       echo "Webビルド" &&
+       rm -rf /build/buildWeb &&
+       emcmake cmake -S /krkrsdl2 -B /build/buildWeb &&
+       cd /build/buildWeb &&
+       make &&
+       echo "Webビルドここまで"
+      '
+  windows:
+    build:
+      context: .
+      dockerfile: dockerfiles/windows/Dockerfile
+    tty: true
+    platform: linux/amd64
+    user: "1001:123"
+    volumes:
+      - ./krkrsdl2:/krkrsdl2
+      - ./build:/build
+    working_dir: /
+    # https://github.com/krkrsdl2/krkrsdl2/actions/runs/7309083739/workflow
+    # を参照
+    command: |
+      /bin/bash -c '
+       echo "Windowsビルド" &&
+       export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin:/opt/llvm-mingw/bin &&
+       rm -rf /build/buildWindows &&
+       cmake  -S /krkrsdl2 -B /build/buildWindows -GNinja -DCMAKE_SYSTEM_NAME=Windows -DCMAKE_SYSTEM_PROCESSOR=i686 -DCMAKE_FIND_ROOT_PATH=/dev/null -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ONLY -DCMAKE_C_COMPILER=i686-w64-mingw32-clang -DCMAKE_CXX_COMPILER=i686-w64-mingw32-g++ -DCMAKE_RC_COMPILER=i686-w64-mingw32-windres -DCMAKE_BUILD_TYPE=Release  &&
+       cd /build/buildWindows &&
+       make &&
+       echo "Windowsビルドここまで"
+      '
