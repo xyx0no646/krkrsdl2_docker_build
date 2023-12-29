@@ -1,6 +1,13 @@
 # krkrsdl2_docker_build
 Windows版/Web版 吉里吉里SDL2をDockerでビルドするためのDocker-Composeファイル
 
+## TL;DR
+
+>git clone --recursive https://github.com/xyx0no646/krkrsdl2_docker_build.git
+>cd krkrsdl2_docker_build
+>docker compose up
+>ls build
+
 ## 使い方
 
 gitおよびDocker DesktopもしくはDocker/Docker-composeがインストールされていること
@@ -10,7 +17,7 @@ gitおよびDocker DesktopもしくはDocker/Docker-composeがインストール
 >git clone --recursive https://github.com/xyx0no646/krkrsdl2_docker_build.git
 >cd krkrsdl2_docker_build
 
-### (共通)Dockerコンテナを準備する
+### (共通)Dockerコンテナをビルドする
 >docker-compose build
 
 失敗した場合はsudoをつけてください
@@ -18,19 +25,19 @@ gitおよびDocker DesktopもしくはDocker/Docker-composeがインストール
 >sudo docker-compose build
 
 ### ビルド
-ビルドしたいターゲットを指定してください。
+お好みでkrkrsdl2フォルダをいじった後、ビルドしたいターゲットを指定してください。
 
-- すべてビルドする
+#### すべてビルドする
 
 >docker-compose up
 
-- Windows版のみビルドする
+#### Windows版のみビルドする
 
 >docker-compose up windows
 
 build/buildWindows/tpvwin32.exeがビルド済みのファイルです
 
-- Web版のみビルドする
+#### Web版のみビルドする
 
 >docker-compose up web
 
