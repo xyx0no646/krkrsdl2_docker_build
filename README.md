@@ -24,6 +24,16 @@ Windows版/Web版 吉里吉里SDL2をDockerでビルドするためのDocker-Com
 
 >docker-compose up windows
 
+build/buildWindows/tpvwin32.exeがビルド済みのファイルです
+
 - Web版のみビルドする
 
 >docker-compose up web
+
+build/buildWeb以下の
+
+- index.html
+- krkrsdl2.wasm
+- krkrsdl2.js
+
+がビルド済みのファイルです
