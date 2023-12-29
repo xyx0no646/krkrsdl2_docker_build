@@ -22,7 +22,6 @@ cd krkrsdl2_docker_build
 ```
 
 ### (共通)Dockerコンテナをビルドする
-
 ```bash
 docker-compose build
 ```
@@ -32,6 +31,7 @@ docker-compose build
 ```bash
 sudo docker-compose build
 ```
+
 ### ビルド
 お好みでkrkrsdl2フォルダをいじった後、ビルドしたいターゲットを指定してください。
 
@@ -42,13 +42,17 @@ docker-compose up
 ```
 #### Windows版のみビルドする
 
->docker-compose up windows
+```bash
+docker-compose up windows
+```
 
 build/buildWindows/tpvwin32.exeがビルド済みのファイルです
 
 #### Web版のみビルドする
 
->docker-compose up web
+```bash
+docker-compose up web
+```
 
 build/buildWeb以下の
 
