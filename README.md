@@ -9,6 +9,10 @@ Windows版/Web版 吉里吉里SDL2をDockerでビルドするためのDocker-Com
 ### (共通)Dockerコンテナを準備する
 >docker-compose build
 
+失敗した場合はsudoをつけてください
+
+>sudo docker-compose build
+
 ### Windows版/Web版をビルドする
 
 >docker-compose up
@@ -19,4 +23,4 @@ Windows版/Web版 吉里吉里SDL2をDockerでビルドするためのDocker-Com
 
 ### Web版のみビルドする
 
-> docker-compose up web
+>docker-compose up web
