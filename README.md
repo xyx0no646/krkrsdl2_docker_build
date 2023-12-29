@@ -13,14 +13,17 @@ Windows版/Web版 吉里吉里SDL2をDockerでビルドするためのDocker-Com
 
 >sudo docker-compose build
 
-### Windows版/Web版をビルドする
+### ビルドターゲット
+ビルドしたいターゲットを指定してください。
+
+- すべてビルドする
 
 >docker-compose up
 
-### Windows版のみビルドする
+- Windows版のみビルドする
 
 >docker-compose up windows
 
-### Web版のみビルドする
+- Web版のみビルドする
 
 >docker-compose up web
