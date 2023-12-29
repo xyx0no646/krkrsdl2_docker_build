@@ -12,7 +12,7 @@ ls build
 
 ## 使い方
 
-gitおよびDocker DesktopもしくはDocker/Docker-composeがインストールされていること
+gitおよびDocker/Docker-composeがインストールされていること
 
 ### (共通)リポジトリをクローンする
 
