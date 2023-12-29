@@ -13,7 +13,7 @@ Windows版/Web版 吉里吉里SDL2をDockerでビルドするためのDocker-Com
 
 >sudo docker-compose build
 
-### ビルドターゲット
+### ビルド
 ビルドしたいターゲットを指定してください。
 
 - すべてビルドする
