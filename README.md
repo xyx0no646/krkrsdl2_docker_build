@@ -3,6 +3,8 @@ Windows版/Web版 吉里吉里SDL2をDockerでビルドするためのDocker-Com
 
 ## 使い方
 
+gitおよびDocker DesktopもしくはDocker/Docker-composeがインストールされていること
+
 ### (共通)吉里吉里SDL2をクローンする
 >git clone --recursive https://github.com/krkrsdl2/krkrsdl2.git
 
